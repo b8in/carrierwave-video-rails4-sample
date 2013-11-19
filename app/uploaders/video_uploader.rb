@@ -1,6 +1,15 @@
 # encoding: utf-8
 
 class VideoUploader < CarrierWave::Uploader::Base
+  include CarrierWave::Video
+
+  #process encode_video: [:mp4, resolution: :same,
+  #                       watermark: {
+  #                          path: File.join(Rails.root, "public", "01.jpg"),
+  #                          position: :bottom_right, # also: :top_right, :bottom_left, :bottom_right
+  #                          pixels_from_edge: 15
+  #                       }
+  #]
 
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
@@ -13,7 +22,7 @@ class VideoUploader < CarrierWave::Uploader::Base
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
-    "uploads/#{model.class.to_s.underscore}"       # /#{mounted_as}
+    "videos"
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:

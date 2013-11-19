@@ -7,4 +7,4 @@
   = f.submit
 
 - @movies.each do |m|
-  = video_tag(m.video.url, size: "150x100")
+  = video_tag(m.video.url, size: "250x200", controls: true, autoplay: true, preload: "auto")

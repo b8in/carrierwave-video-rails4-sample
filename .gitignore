@@ -15,3 +15,5 @@
 /*~
 /config/*.yml
 /Gemfile.lock
+
+/public/videos
