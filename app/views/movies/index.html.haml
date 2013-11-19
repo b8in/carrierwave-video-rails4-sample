@@ -1,0 +1,10 @@
+%h1
+  = "Movies#index"
+= form_for @movie do |f|
+  = f.label :title
+  = f.text_field :title
+  = f.file_field :video
+  = f.submit
+
+- @movies.each do |m|
+  = video_tag(m.video.url, size: "150x100")
