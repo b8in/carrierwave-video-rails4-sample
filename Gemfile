@@ -7,6 +7,8 @@ gem 'rails', '4.0.1'
 gem 'pg'
 
 gem 'carrierwave-video'
+gem 'carrierwave-dropbox'
+gem "rails_config"
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'

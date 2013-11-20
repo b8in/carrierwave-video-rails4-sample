@@ -11,9 +11,11 @@
 /log/*.log
 /tmp
 
-/.idea  
+/.idea
+/**/*~
 /*~
 /config/*.yml
 /Gemfile.lock
 
 /public/videos
+/public/uploads
