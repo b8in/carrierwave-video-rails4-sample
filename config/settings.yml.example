@@ -1,0 +1,7 @@
+dropbox:
+  app_key: "your_app_key"
+  app_secret: "your_app_secret"
+  access_token: "your_access_token"
+  access_token_secret: "your_access_token_secret"
+  user_id: "your_user_id"
+  access_type: "app_folder"

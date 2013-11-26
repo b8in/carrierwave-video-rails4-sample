@@ -1,0 +1,18 @@
+common: &common
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  host: localhost
+  port: 5432
+  username: <YOUR_USERNAME>
+  password: <YOUR_PASSWORD>
+
+development:
+  <<: *common
+  database: cwdbox_development
+test:
+  <<: *common
+  database: cwdbox_test
+production:
+  <<: *common
+  database: cwdbox_production
