@@ -35,9 +35,9 @@
 В случае успеха в папке /usr/local/bin (или по пути переданному в параметре --bindir) появятся бинарники ffmpeg и другие.
 
 LINKS:
-http://trac.ffmpeg.org/wiki/UbuntuCompilationGuide#ffmpeg
-http://ffmpeg.org/documentation.html
-http://rus-linux.net/lib.php?name=/MyLDP/mm/ffmpeg.html
+http://trac.ffmpeg.org/wiki/UbuntuCompilationGuide#ffmpeg  
+http://ffmpeg.org/documentation.html  
+http://rus-linux.net/lib.php?name=/MyLDP/mm/ffmpeg.html  
 
-https://github.com/streamio/streamio-ffmpeg
-https://github.com/rheaton/carrierwave-video
+https://github.com/streamio/streamio-ffmpeg  
+https://github.com/rheaton/carrierwave-video  
