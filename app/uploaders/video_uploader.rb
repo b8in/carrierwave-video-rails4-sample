@@ -3,17 +3,26 @@
 class VideoUploader < CarrierWave::Uploader::Base
   include CarrierWave::Video
 
-  #process encode_video: [:mp4, resolution: :same,
-  #                       watermark: {
-  #                          path: File.join(Rails.root, "public", "01.jpg"),
-  #                          position: :bottom_right, # also: :top_right, :bottom_left, :bottom_right
-  #                          pixels_from_edge: 15
-  #                       }
-  #]
+  process encode_video: [:mp4, resolution: :same, custom: '-strict experimental -acodec aac',
+                         watermark: {
+                            path: File.join(Rails.root, "app", "assets", "images", "wm.jpg"),
+                            position: :bottom_right, # also: :top_right, :bottom_left, :bottom_right
+                            pixels_from_edge: 15
+                         }
+  ]
+
+  #process :encode_by_file_extension
 
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   # include CarrierWave::MiniMagick
+
+  def encode_by_file_extension
+    ext = model.title.rpartition('.')[2].to_sym
+    encode_video(ext, custom: '-strict experimental -acodec mp3')
+                      # , resolution: :same  # -vcodec libx264 -acodec vorbis -s 800x600  -qscale 0 -preset slow -g 30
+
+  end
 
   # Choose what kind of storage to use for this uploader:
   storage :dropbox
@@ -53,8 +62,8 @@ class VideoUploader < CarrierWave::Uploader::Base
 
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
-  # def filename
-  #   "something.jpg" if original_filename
-  # end
+  def filename
+     model.title if original_filename
+  end
 
 end
