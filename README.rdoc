@@ -1,3 +1,43 @@
 == README
 
-Это не приложение, а проверка возможности обработки видео в рейлс-приложениях с подключением некоторых гемов.
+Это не завершенное приложение, а проверка возможности обработки видео в рейлс-приложениях с подключением некоторых гемов.
+
+=== Памятка
+
+Гем "streamio-ffmpeg" по сути является ruby интерфейсом или надстройкой над Си-шной либой ffmpeg, поэтому для использования гема необходимо предварительно установить в системе Linux библиотеку ffmpeg. Подробности в файле INSTALL, в папке с исходниками. Чтобы расширить набор кодеков нужно предварительно скомпилировать их из исходников или установить соответствующие пакеты (проверялось для Ubuntu 13.04):
+
+  x264
+  libfaac
+  libopus-dev
+  libmp3lame
+  libfdk-aac-dev  #пакет есть для Ubuntu начиная с Саламандры (13.10)
+  libtheora-dev
+  libvorbis-dev
+  libvpx-dev
+
+Библиотека ffmpeg компилируется yasm'ом. Если этот компилятор не установден, то надо установить. Например скачать и скомпилировать исходники.
+
+Компиляция ffmpeg происходит в несколько этапов (Подробности в файле INSTALL)
+
+1.
+  Запуск комады ./configure
+  Чтобы использование ранее установленных библиотек стало возможным, необходимо указать специальные флаги --enable-ххх. Например:
+
+  bash ./configure --bindir="/usr/local/bin" --extra-libs="-ldl" --enable-gpl --enable-libass --enable-libmp3lame --enable-libopus --enable-libtheora --enable-libvorbis --enable-libvpx --enable-libx264 --enable-nonfree --enable-x11grab
+
+2.
+  Запуск команды make
+
+3.
+  Запуск команды make install
+
+
+В случае успеха в папке /usr/local/bin (или по пути переданному в параметре --bindir) появятся бинарники ffmpeg и другие.
+
+LINKS:
+http://trac.ffmpeg.org/wiki/UbuntuCompilationGuide#ffmpeg
+http://ffmpeg.org/documentation.html
+http://rus-linux.net/lib.php?name=/MyLDP/mm/ffmpeg.html
+
+https://github.com/streamio/streamio-ffmpeg
+https://github.com/rheaton/carrierwave-video
